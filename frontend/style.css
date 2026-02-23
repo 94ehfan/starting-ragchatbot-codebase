@@ -22,6 +22,7 @@
     --focus-ring: rgba(37, 99, 235, 0.2);
     --welcome-bg: #1e3a5f;
     --welcome-border: #2563eb;
+    --app-header-height: 60px;
 }
 
 /* Base Styles */
@@ -44,6 +45,46 @@ body {
     flex-direction: column;
     margin: 0;
     padding: 0;
+}
+
+
+/* App Title Header Bar */
+.app-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    width: 100%;
+    height: var(--app-header-height);
+    background: var(--surface);
+    border-bottom: 2px solid var(--primary-color);
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+.app-header-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+    padding: 0 1.5rem;
+}
+
+.app-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    letter-spacing: 0.01em;
+    white-space: nowrap;
+}
+
+.app-tagline {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    white-space: nowrap;
+    padding-left: 1rem;
+    border-left: 1px solid var(--border-color);
 }
 
 /* Header - Hidden */
@@ -657,6 +698,25 @@ details[open] .suggested-header::before {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+    .app-header {
+        height: auto;
+        min-height: var(--app-header-height);
+        padding: 0.75rem 0;
+    }
+
+    .app-header-content {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.25rem;
+        padding: 0 1rem;
+    }
+
+    .app-tagline {
+        border-left: none;
+        padding-left: 0;
+    }
+
+
     .main-content {
         flex-direction: column;
     }
